@@ -1,17 +1,36 @@
+% Title
+% Name
+% yyyy/mm/dd
+
+# Header1
+
 ---
-author: John Doe
-title: Demo Slide
-date: June 21, 2017
+
+### Header3
+
+- foo
+- bar
+- foobar
+
 ---
-# Foo
 
-```python
-print("hello world")
-```
+### header
 
---- 
-# Bar
+1. foo
+1. bar
+1. baz
 
-* test
+# HEADER
 
-* test
+---
+
+_foo_
+
+__bar__
+
+___baz___
+
+[foobar_link](https://github.com/hakimel/reveal.js/#full-setup)
+
+> foo bar  
+> baz

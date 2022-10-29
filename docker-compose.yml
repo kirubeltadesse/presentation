@@ -8,7 +8,7 @@ services:
       - .:/data
     ports:
       - "8000:8000"
-    command: "-t revealjs -s -o /data/presentation.html /data/presentation.md --slide-level=2 --mathjax --variable theme=solarized --variable transition=none --variable revealjs-url=https://revealjs.com"
+    command: " --standalone -t revealjs -o /data/presentation.html -s /data/presentation.md -V theme=$solarized -V revealjs-url=https://revealjs.com"
     
 volumes:
   presentation:

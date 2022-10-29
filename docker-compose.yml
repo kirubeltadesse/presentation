@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  presentation:
+    build: .
+    # user: 1001:1001 
+    volumes:
+      - .:/data
+    ports:
+      - "8000:8000"
+    command: "-t revealjs -s -o /data/presentation.html /data/presentation.md --slide-level=2 --mathjax --variable theme=solarized --variable transition=none --variable revealjs-url=https://revealjs.com"
+    
+volumes:
+  presentation:
+    driver: local
+  slides:
+    driver: local

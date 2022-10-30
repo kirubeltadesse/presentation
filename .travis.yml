@@ -8,7 +8,7 @@ script:
   # create docs directory for pandoc output
   - mkdir docs
   # Generate reveal.js powered HTML from Markdown
-  - pandoc --standalone -t revealjs -o docs/index.html presentation.md -V revealjs-url=https://revealjs.com -V theme=solarized
+  - pandoc --standalone -t revealjs -o docs/index.html slide.md -V revealjs-url=https://revealjs.com -V theme=solarized
 
 # Deploy to GitHub pages (see https://docs.travis-ci.com/user/deployment/pages/)
 deploy:

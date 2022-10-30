@@ -1,9 +1,18 @@
-FROM pandoc/core
+#TODO: use a smaller and latest image
+FROM ubuntu:latest
 
-RUN wget https://github.com/hakimel/reveal.js/archive/master.tar.gz 
+# Install pandoc
+RUN apt-get update && apt-get install -y \
+    pandoc \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN tar -xzvf master.tar.gz  
+# install revealjs
+RUN wget https://github.com/hakimel/reveal.js/archive/master.tar.gz
+
+RUN tar -xzvf master.tar.gz
 
 RUN mv reveal.js-master reveal.js
 
-COPY . /data
+WORKDIR /reveal.js/content
+

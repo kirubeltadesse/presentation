@@ -2,55 +2,60 @@
 author: Kirubel Tadesse
 title: Interview-Prep
 date: October 31, 2022
+transition: flipx
+speaker_notes: true
 ---
 
 # Job Application Process overview
-<!-- TODO: add images -->
+
+---
+
+![](img/delimma.jpg)
+
 ---
 
 ### Frontend
 
-- Resume
-- applicatoin (hunter)
-- follow up (mixmax)
-- interview 🎉
+- [Resume](https://www.vmock.com/)
+- Organize your applicatoin [hunter](https://huntr.co/)
+- Networking [mixmax](https://www.mixmax.com/features/templates)
+- __Phone interview__ 🎉
+
+Note:
+no cold email, no applicaiton that get anywhere
 
 ---
 
 ### Backend
 
-- recommendation
-- networking
-- techincal skill
+- Recommendation letter
+- Following up (networking)
+- Techincal skill [AlgoExpert](https://www.algoexpert.io/product)
 - __final round__ 🎉
 
 ---
 
-### Resource
-
-- Bloomberg mentorship program
-- Jumpstart
-- Mixmax
-- Pramp
+# Tips
 
 ---
 
-### Tips
+![](img/timeManagment.png)
 
-- General times
-- Time management
-- Journaling
+---
+
+> "If you chase two rabbits, __BOTH__ will escape".
+
+> "A life worth living is a life worth recording."
+> Jim Rohn
 
 ---
 
 ### Don't Does
 
-- underdress
-- interview without preparation
-- celebrate early
-- change direction
-- closing
-- Value in working together
+- Underdress
+- Interview without preparation
+- Celebrate early
+- Change direction
 
 ---
 
@@ -62,7 +67,31 @@ date: October 31, 2022
 
 ---
 
-# offer
+### Coding
+
+> Write a function that reverse a string!
+
+---
+
+#### Here is an answer
+
+```c++
+string reverse(string str){
+    int left = 0;
+    int right = str.size() - 1;
+    while(left < right>) {
+        char temp = str[left];
+        str[left] = str[right];
+        str[right] = temp;
+    }
+    return str;
+}
+
+```
+
+---
+
+# Offer
 
 ---
 
@@ -70,4 +99,17 @@ Salary negotiation 🙌🎉🎊
 
 ---
 
+### Resource
 
+- [Bloomberg mentorship program](https://www.bloomberg.com/company/career/bloomberg-engineering-accelerator/)
+- [Mixmax](https://www.mixmax.com/features/templates)
+- [hunter](https://huntr.co/)
+- [Pramp](https://www.pramp.com/#/)
+- [AlgoExpert](https://www.algoexpert.io/product)
+- [Leetcode](https://leetcode.com/)
+
+---
+
+# Conclusion
+
+Thank you for listening

@@ -3,10 +3,17 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install pandoc
   - pandoc --version
+  - wget https://github.com/hakimel/reveal.js/archive/master.tar.gz
+  - tar -xzvf master.tar.gz
+  - mv reveal.js-master reveal.js
+  # TODO: this is missing revealjs 
 
 script:
   # create docs directory for pandoc output
   - mkdir docs
+  # change directory to reveal.js/content
+  - cd reveal.js/content
+
   # Generate reveal.js powered HTML from Markdown
   - pandoc --standalone -t revealjs -o docs/index.html slide.md -V revealjs-url=https://revealjs.com -V theme=solarized
 

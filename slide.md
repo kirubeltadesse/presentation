@@ -2,11 +2,10 @@
 author: Kirubel Tadesse
 title: Interview-Prep
 date: October 31, 2022
-transition: flipx
-speaker_notes: true
+subtitle: First-Group Presentation
 ---
 
-# Job Application Process overview
+## Job Application Process overview
 
 ---
 
@@ -20,6 +19,10 @@ speaker_notes: true
 - Organize your applicatoin [hunter](https://huntr.co/)
 - Networking [mixmax](https://www.mixmax.com/features/templates)
 - __Phone interview__ 🎉
+
+---
+
+![](img/resume-upload-meme.jpg)
 
 Note:
 no cold email, no applicaiton that get anywhere
@@ -35,7 +38,7 @@ no cold email, no applicaiton that get anywhere
 
 ---
 
-# Tips
+## Tips
 
 ---
 
@@ -43,7 +46,13 @@ no cold email, no applicaiton that get anywhere
 
 ---
 
+![](img/procrastination.jpeg)
+
+---
+
 > "If you chase two rabbits, __BOTH__ will escape".
+
+
 
 > "A life worth living is a life worth recording."
 > Jim Rohn
@@ -59,39 +68,38 @@ no cold email, no applicaiton that get anywhere
 
 ---
 
-# Frontend
+### Do Does
+
+[![Pomodoro](https://img.youtube.com/vi/mNBmG24djoY/0.jpg)](https://youtu.be/mNBmG24djoY)
 
 ---
 
-# Backend
+![](img/Teamwork.jpg)
 
 ---
 
 ### Coding
 
-> Write a function that reverse a string!
+>Write a function that reverse a string!
 
 ---
-
-#### Here is an answer
 
 ```c++
-string reverse(string str){
-    int left = 0;
-    int right = str.size() - 1;
-    while(left < right>) {
-        char temp = str[left];
-        str[left] = str[right];
-        str[right] = temp;
+    string reverse(string str){
+        int left = 0;
+        int right = str.size() - 1;
+        while(left < right) {
+            char temp = str[left];
+            str[left] = str[right];
+            str[right] = temp;
+            left++;
+            right--;
+        }
+        return str;
     }
-    return str;
-}
-
 ```
 
----
-
-# Offer
+## Offer
 
 ---
 
@@ -110,6 +118,6 @@ Salary negotiation 🙌🎉🎊
 
 ---
 
-# Conclusion
+## Conclusion
 
 Thank you for listening

@@ -67,20 +67,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <section>
   <h1 class="title">Interview-Prep</h1>
+  <h1 class="subtitle">First-Group Presentation</h1>
   <h2 class="author">Kirubel Tadesse</h2>
   <h3 class="date">October 31, 2022</h3>
 </section>
 
-<section id="job-application-process-overview" class="slide level1">
+<section id="job-application-process-overview" class="slide level2">
 <h1>Job Application Process overview</h1>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
 <figure>
 <img src="img/delimma.jpg" />
 </figure>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
 <h3 id="frontend">Frontend</h3>
 <ul>
@@ -89,9 +90,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Networking <a href="https://www.mixmax.com/features/templates">mixmax</a></li>
 <li><strong>Phone interview</strong> 🎉</li>
 </ul>
+</section>
+<section class="slide level2">
+
+<figure>
+<img src="img/resume-upload-meme.jpg" />
+</figure>
 <p>Note: no cold email, no applicaiton that get anywhere</p>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
 <h3 id="backend">Backend</h3>
 <ul>
@@ -101,16 +108,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><strong>final round</strong> 🎉</li>
 </ul>
 </section>
-<section id="tips" class="slide level1">
+<section id="tips" class="slide level2">
 <h1>Tips</h1>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
 <figure>
 <img src="img/timeManagment.png" />
 </figure>
 </section>
-<section class="slide level1">
+<section class="slide level2">
+
+<figure>
+<img src="img/procrastination.jpeg" />
+</figure>
+</section>
+<section class="slide level2">
 
 <blockquote>
 <p>&quot;If you chase two rabbits, <strong>BOTH</strong> will escape&quot;.</p>
@@ -119,7 +132,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>&quot;A life worth living is a life worth recording.&quot; Jim Rohn</p>
 </blockquote>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
 <h3 id="dont-does">Don't Does</h3>
 <ul>
@@ -129,41 +142,47 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Change direction</li>
 </ul>
 </section>
-<section id="frontend-1" class="slide level1">
-<h1>Frontend</h1>
+<section class="slide level2">
+
+<h3 id="do-does">Do Does</h3>
+<p><a href="https://youtu.be/mNBmG24djoY"><img src="https://img.youtube.com/vi/mNBmG24djoY/0.jpg" alt="Pomodoro" /></a></p>
 </section>
-<section id="backend-1" class="slide level1">
-<h1>Backend</h1>
+<section class="slide level2">
+
+<figure>
+<img src="img/Teamwork.jpg" />
+</figure>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
 <h3 id="coding">Coding</h3>
 <blockquote>
 <p>Write a function that reverse a string!</p>
 </blockquote>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
-<h4 id="here-is-an-answer">Here is an answer</h4>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">string reverse(string str){
-    <span class="dt">int</span> left = <span class="dv">0</span>;
-    <span class="dt">int</span> right = str.size() - <span class="dv">1</span>;
-    <span class="kw">while</span>(left &lt; right&gt;) {
-        <span class="dt">char</span> temp = str[left];
-        str[left] = str[right];
-        str[right] = temp;
-    }
-    <span class="kw">return</span> str;
-}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">    string reverse(string str){
+        <span class="dt">int</span> left = <span class="dv">0</span>;
+        <span class="dt">int</span> right = str.size() - <span class="dv">1</span>;
+        <span class="kw">while</span>(left &lt; right) {
+            <span class="dt">char</span> temp = str[left];
+            str[left] = str[right];
+            str[right] = temp;
+            left++;
+            right--;
+        }
+        <span class="kw">return</span> str;
+    }</code></pre></div>
 </section>
-<section id="offer" class="slide level1">
+<section id="offer" class="slide level2">
 <h1>Offer</h1>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
 <p>Salary negotiation 🙌🎉🎊</p>
 </section>
-<section class="slide level1">
+<section class="slide level2">
 
 <h3 id="resource">Resource</h3>
 <ul>
@@ -175,7 +194,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="https://leetcode.com/">Leetcode</a></li>
 </ul>
 </section>
-<section id="conclusion" class="slide level1">
+<section id="conclusion" class="slide level2">
 <h1>Conclusion</h1>
 <p>Thank you for listening</p>
 </section>
@@ -190,8 +209,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        // Transition style
-        transition: 'flipx', // none/fade/slide/convex/concave/zoom
 
         // Optional reveal.js plugins
         dependencies: [

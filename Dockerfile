@@ -4,6 +4,7 @@ FROM ubuntu:latest
 # Install pandoc
 RUN apt-get update && apt-get install -y \
     wget \
+    make \
     && rm -rf /var/lib/apt/lists/*
 
 # install latest pandoc
@@ -19,4 +20,6 @@ RUN tar -xzvf master.tar.gz
 RUN mv reveal.js-master reveal.js
 
 WORKDIR /reveal.js/content
+
+ENTRYPOINT [ "tail", "-f", "/dev/null" ]
 

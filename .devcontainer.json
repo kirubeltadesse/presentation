@@ -7,7 +7,6 @@
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
-		"../docker-compose.yml",
 		"docker-compose.yml"
 	],
 
@@ -20,10 +19,20 @@
 	"workspaceFolder": "/reveal.js/content",
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	"settings": {
+
+	},
 
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": []
+	"extensions": [
+		"github.copilot",
+		"esbenp.prettier-vscode",
+		"gruntfuggly.todo-tree",
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"davidanson.vscode-markdownlint", 
+		"ms-azuretools.vscode-docker"
+	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

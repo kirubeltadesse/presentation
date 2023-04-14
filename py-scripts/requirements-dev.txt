@@ -1,0 +1,7 @@
+. 
+black
+pydocstyle
+pylint
+pytest
+mypy
+coverage

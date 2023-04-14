@@ -1,0 +1,42 @@
+body {
+    background-color: #DBDBDB;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 70%;
+    margin: 5em auto;
+}
+
+.feed {
+    width: 300px;
+    background-color: #FFFFFF;
+    border: 1px solid #989898;
+    border-top: 10px solid #E75131;
+    margin: 1em;
+}
+
+.feed h3 {
+    border-bottom: 1px solid #989898;
+    margin: 0;
+    padding: 1em;
+    font-size: 1.3em;
+}
+
+.feed ul {
+    padding: 0 1em;
+    list-style: none;
+}
+
+.feed li {
+    margin: 1em 0;
+    border-bottom: 1px dashed #989898;
+    padding-bottom: 1em;
+}
+
+.feed li a {
+    color: #333333;
+}

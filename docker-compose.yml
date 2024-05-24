@@ -10,7 +10,8 @@ services:
       - 8000:8000
     # command: bash -c "pandoc --standalone -t revealjs -o test.html -s /reveal.js/content/slide.md -V theme=$solarized -V revealjs-url=https://revealjs.com"
     # sleep inifinity to keep the container running
-    command: sleep infinity
+    # command: sleep infinity
+    command: python3 -m http.server 8000 --directory /reveal.js/content
     
 volumes:
   presentation:

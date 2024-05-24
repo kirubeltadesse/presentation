@@ -24,8 +24,7 @@ subtitle: First-Group Presentation
 
 ![](img/resume-upload-meme.jpg)
 
-Note:
-no cold email, no applicaiton that get anywhere
+^ no cold email, no applicaiton that get anywhere
 
 ---
 

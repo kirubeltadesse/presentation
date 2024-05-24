@@ -38,7 +38,10 @@ jobs:
           command: |
             git config --global user.email "kirubel.m.tadesse@gmail.com"
             git config --global user.name "kirubeltadesse"
-            git add docs
+            git checkout gh-pages
+            git pull origin gh-pages
+            cp -r docs/* .
+            git add .
             git commit -m "Deploy to GitHub Pages"
             git push origin gh-pages
 workflows:

@@ -15,7 +15,13 @@ jobs:
           name: Build docs
           command: |
             mkdir docs
-            for FOLDER in $(ls -d */ | grep -v 'filters'); do make build FOLDER_NAME=docs/$FOLDER; done
+            for FOLDER in $(ls -d */ | grep -v 'filters'); do
+              if [ -f $FOLDER/config.yml ]; then
+                make build FOLDER=$FOLDER;
+              else
+                echo "No config.yml in $FOLDER";
+              fi;
+            done
       - persist_to_workspace:
           root: .
           paths:

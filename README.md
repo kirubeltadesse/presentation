@@ -11,3 +11,11 @@ creating slides revealjs
 3. you can view the slide by manually clicking on the `.html` file
 
 [Here](https://gist.github.com/jonashackt/85f9df62986db4e70396e3c494e26b76) is the template used to create the slide for the presentation.
+
+Speaker notes
+
+::: notes
+
+content for the speaker
+
+:::

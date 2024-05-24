@@ -40,8 +40,7 @@ jobs:
             git config --global user.name "kirubeltadesse"
             git checkout gh-pages
             git pull origin gh-pages
-            ls
-            cp -r docs/* .
+            cp  config.yml .
             git add .
             git commit -m "Deploy to GitHub Pages"
             git push origin gh-pages

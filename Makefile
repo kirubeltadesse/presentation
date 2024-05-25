@@ -17,6 +17,12 @@ $(BUILD_DIR)/slides.html: $(FOLDER)/config.yml | check_build_dir
 	cp $(FOLDER)/img/* $(BUILD_DIR)/img/
 	pandoc -t revealjs -s $(shell grep -v '^-' $(FOLDER)/config.yml | xargs -I{} echo $(FOLDER)/{}) --resource-path=$(FOLDER) -V revealjs-url=https://unpkg.com/reveal.js@4.2.0/ -V slideNumber=true -o $@
 
+# Generate index.html with links to all files in the build directory
+index: check_build_dir
+	echo "<html><body><h1>Presentation Files</h1><ul>" > $(BUILD_DIR)/index.html
+	find $(BUILD_DIR) -type f | grep -v 'index.html' | sed 's|^$(BUILD_DIR)/|<li><a href="|' | sed 's|$$|">File</a></li>|' >> $(BUILD_DIR)/index.html
+	echo "</ul></body></html>" >> $(BUILD_DIR)/index.html
+
 clean:
 	rm -rf build
 

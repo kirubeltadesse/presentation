@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Build docs
           command: |
-            mkdir -p build/docs
+            mkdir -p docs
             for FOLDER in $(ls -d */ | grep -v 'filters'); do
               if [ -f $FOLDER/config.yml ]; then
                 make build FOLDER=$FOLDER;

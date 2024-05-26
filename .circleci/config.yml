@@ -57,21 +57,16 @@ jobs:
           command: |
             git fetch origin gh-pages
             git checkout gh-pages
-            if [ -d "docs" ]; then
-              cp -r docs/* .
-            else
-              echo "docs directory does not exist"
+            if [ ! -d "docs" ]; then
+              mkdir docs
             fi
+            cp -r docs/* .
             git add .
       - run:
           name: Deploy to GitHub Pages
           command: |
-            if git diff --staged --quiet; then
-              echo "No changes to commit"
-            else
               git commit -m "Deploy to GitHub Pages"
               git push -f origin gh-pages
-            fi
 
 workflows:
   version: 2

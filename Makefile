@@ -1,8 +1,10 @@
 .PHONY: build serve check_build_dir
 
-FOLDER=./slides
-FOLDER_NAME=$(shell basename $(FOLDER))
-BUILD_DIR = build/$(FOLDER_NAME)
+FOLDER ?= ./slides
+# Remove trailing slash if present
+FOLDER := $(patsubst %/,%,$(FOLDER))
+
+BUILD_DIR = build/$(FOLDER)
 
 # Check if the build directory exists, if not create it
 check_build_dir:
@@ -10,13 +12,14 @@ check_build_dir:
 
 
 # Default build
-build: check_build_dir $(BUILD_DIR)/slides.html index
+build: check_build_dir $(BUILD_DIR)/$(notdir $(FOLDER)).html index
 
 # Convert Markdown slides to Reveal.js format
-$(BUILD_DIR)/slides.html: $(FOLDER)/config.yml | check_build_dir
+$(BUILD_DIR)/$(notdir $(FOLDER)).html: $(FOLDER)/config.yml | check_build_dir
 	cp $(FOLDER)/img/* $(BUILD_DIR)/img/
-	pandoc -t revealjs -s $(shell grep -v '^-' $(FOLDER)/config.yml | xargs -I{} echo $(FOLDER)/{}) --resource-path=$(FOLDER) -V revealjs-url=https://unpkg.com/reveal.js@4.2.0 -V slideNumber=true -o $@
-	echo "Generated index: build/index.html"
+	pandoc -t revealjs -s $(shell grep -v '^-' $(FOLDER)/config.yml | xargs -I{} echo $(FOLDER)/{}) \
+	--resource-path=$(FOLDER) -V revealjs-url=https://unpkg.com/reveal.js@4.2.0 -V slideNumber=true -o $@
+	echo "Generated $(notdir $(FOLDER)).html: build/$(notdir $(FOLDER)).html"
 
 # Generate index.html with links to all files in the build directory
 index: check_build_dir

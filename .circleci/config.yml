@@ -13,14 +13,13 @@ jobs:
             sudo apt-get -y install pandoc make
             pandoc --version
       - run:
-          name: Build docs
+          name: Building the reveal.js presentation slides
           command: |
-            mkdir -p docs
-            for FOLDER in $(ls -d */ | grep -v 'filters'); do
-              if [ -f $FOLDER/config.yml ]; then
-                make build FOLDER=$FOLDER;
+            for PROJ in $(basename -a $(ls -d */ | grep -v 'filters')); do
+              if [ -f $PROJ/config.yml ]; then
+                make build FOLDER=$PROJ;
               else
-                echo "No config.yml in $FOLDER";
+                echo "No config.yml in $PROJ. Skipping...";
               fi;
             done
       - persist_to_workspace:

@@ -15,7 +15,7 @@ build: check_build_dir $(BUILD_DIR)/slides.html index
 # Convert Markdown slides to Reveal.js format
 $(BUILD_DIR)/slides.html: $(FOLDER)/config.yml | check_build_dir
 	cp $(FOLDER)/img/* $(BUILD_DIR)/img/
-	pandoc -t revealjs -s $(shell grep -v '^-' $(FOLDER)/config.yml | xargs -I{} echo $(FOLDER)/{}) --resource-path=$(FOLDER) -V revealjs-url=https://unpkg.com/reveal.js@4.2.0/ -V slideNumber=true -o $@
+	pandoc -t revealjs -s $(shell grep -v '^-' $(FOLDER)/config.yml | xargs -I{} echo $(FOLDER)/{}) --resource-path=$(FOLDER) -V revealjs-url=https://unpkg.com/reveal.js@4.2.0 -V slideNumber=true -o $@
 	echo "Generated index: build/index.html"
 
 # Generate index.html with links to all files in the build directory

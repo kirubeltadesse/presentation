@@ -24,6 +24,9 @@ jobs:
               fi;
             done
       - run:
+          name: Create docs directory if it doesn't exist
+          command: mkdir -p docs
+      - run:
           name: Persist docs
           command: |
             cp -r build/* docs
@@ -55,7 +58,7 @@ jobs:
               echo "No changes to commit"
             else
               git commit -m "Deploy to GitHub Pages"
-              git push origin gh-pages
+              git push -f origin gh-pages
             fi
 
 workflows:

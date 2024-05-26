@@ -10,23 +10,29 @@ check_build_dir:
 
 
 # Default build
-build: check_build_dir $(BUILD_DIR)/slides.html
+build: check_build_dir $(BUILD_DIR)/slides.html index
 
 # Convert Markdown slides to Reveal.js format
 $(BUILD_DIR)/slides.html: $(FOLDER)/config.yml | check_build_dir
 	cp $(FOLDER)/img/* $(BUILD_DIR)/img/
 	pandoc -t revealjs -s $(shell grep -v '^-' $(FOLDER)/config.yml | xargs -I{} echo $(FOLDER)/{}) --resource-path=$(FOLDER) -V revealjs-url=https://unpkg.com/reveal.js@4.2.0/ -V slideNumber=true -o $@
+	echo "Generated index: build/index.html"
 
 # Generate index.html with links to all files in the build directory
 index: check_build_dir
-	echo "<html><body><h1>Presentation Files</h1><ul>" > $(BUILD_DIR)/index.html
-	find $(BUILD_DIR) -type f | grep -v 'index.html' | sed 's|^$(BUILD_DIR)/|<li><a href="|' | sed 's|$$|">File</a></li>|' >> $(BUILD_DIR)/index.html
-	echo "</ul></body></html>" >> $(BUILD_DIR)/index.html
+	echo "<html><body><h1>Presentation Files</h1><ul>" > build/index.html
+	find build -type f -name '*.html' | grep -v 'index.html' | while read file; do \
+		title=$$(basename "$$file" .html); \
+		href=$$(echo $$file | sed 's|^build/||'); \
+		echo "<li><a href=\"$$href\">$$title</a></li>"; \
+	done >> build/index.html
+	echo "</ul></body></html>" >> build/index.html
+	echo "Generated index: build/index.html"
 
 clean:
 	rm -rf build
 
 # Serve the slides using Python's HTTP server
 serve:
-	python3 -m http.server 8000 --directory $(BUILD_DIR)
+	python3 -m http.server 8000 --directory build
 

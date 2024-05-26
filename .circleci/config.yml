@@ -23,18 +23,6 @@ jobs:
                 echo "No config.yml in $FOLDER";
               fi;
             done
-      - run:
-          name: Create docs directory if it doesn't exist
-          command: mkdir -p docs
-      - run:
-          name: Persist docs
-          command: |
-            cp -r build/* docs
-      - persist_to_workspace:
-          root: .
-          paths:
-            - docs
-
   deploy:
     docker:
       - image: circleci/python:3.7
@@ -57,10 +45,7 @@ jobs:
           command: |
             git fetch origin gh-pages
             git checkout gh-pages
-            if [ ! -d "docs" ]; then
-              mkdir docs
-            fi
-            cp -r docs/* .
+            cp -r build/* .
             git add .
       - run:
           name: Deploy to GitHub Pages

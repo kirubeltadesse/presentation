@@ -36,11 +36,6 @@ jobs:
             git config --global user.email "kirubel.m.tadesse@gmail.com"
             git config --global user.name "kirubeltadesse"
       - run:
-          name: Commit changes
-          command: |
-            git add .
-            git stash
-      - run:
           name: Checkout gh-pages branch and copy files
           command: |
             git fetch origin gh-pages

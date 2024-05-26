@@ -39,7 +39,7 @@ jobs:
           name: Commit changes
           command: |
             git add .
-            git commit -m "Untracked files from GitHub"
+            git stash
       - run:
           name: Checkout gh-pages branch and copy files
           command: |

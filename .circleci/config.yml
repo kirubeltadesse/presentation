@@ -57,7 +57,11 @@ jobs:
           command: |
             git fetch origin gh-pages
             git checkout gh-pages
-            cp -r docs/* .
+            if [ -d "docs" ]; then
+              cp -r docs/* .
+            else
+              echo "docs directory does not exist"
+            fi
             git add .
       - run:
           name: Deploy to GitHub Pages

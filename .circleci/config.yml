@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Build docs
           command: |
-            mkdir -p build/docs
+            mkdir -p docs
             for FOLDER in $(ls -d */ | grep -v 'filters'); do
               if [ -f $FOLDER/config.yml ]; then
                 make build FOLDER=$FOLDER;
@@ -57,7 +57,7 @@ jobs:
           command: |
             git fetch origin gh-pages
             git checkout gh-pages
-            if [ -d "docs" ]; then
+            if [ ! -d "docs" ]; then
               mkdir docs
             fi
             cp -r docs/* .

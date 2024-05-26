@@ -43,10 +43,18 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Copy HTML files to gh-pages branch
+          name: Set Git user information
           command: |
             git config --global user.email "kirubel.m.tadesse@gmail.com"
             git config --global user.name "kirubeltadesse"
+      - run:
+          name: Commit changes
+          command: |
+            git add .
+            git commit -m "Untracked files from GitHub"
+      - run:
+          name: Checkout gh-pages branch and copy files
+          command: |
             git fetch origin gh-pages
             git checkout gh-pages
             cp -r docs/* .

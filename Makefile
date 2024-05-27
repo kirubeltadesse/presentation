@@ -4,6 +4,7 @@ FOLDER ?= ./slides
 # Remove trailing slash if present
 FOLDER := $(patsubst %/,%,$(FOLDER))
 
+# Get the root of the repository to use as a base for the template file in CircleCI
 REPO_ROOT := $(shell pwd)
 
 BUILD_DIR = build/$(FOLDER)

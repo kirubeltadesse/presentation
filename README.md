@@ -1,8 +1,8 @@
 # presentation
-creating slides revealjs 
 
+Create slides using Markdown, pandoc, and revealJS.
 
-[![Build Status](https://app.travis-ci.com/kirubeltadesse/presentation.svg?branch=master)](https://app.travis-ci.com/kirubeltadesse/presentation)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/kirubeltadesse/presentation/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/kirubeltadesse/presentation/tree/master)
 
 [Here](https://github.com/jgm/pandoc/wiki/Using-pandoc-to-produce-reveal.js-slides) is the setup for the `Dockerfile` used to create the slides.
 
@@ -24,7 +24,7 @@ I am not sure how this travel can be triggered. This should work!
 
 ## Deployment
 
-### First option
+### You can manually push the build
 
 1. build locally and push mv the contents of the build folder outside the build folder.
 
@@ -34,6 +34,6 @@ make build FOLDER=preo
 
 2. push directly to the gh-pages repo
 
-### second option
+### Automatically CircleCI will handle the build
 
-1. push the master repo and Circle ci will handle the deployment (not reliable so far)
+1. push the master repo and Circle ci will handle the deployment.

@@ -45,12 +45,17 @@ jobs:
             git checkout gh-pages
             ls -la
             cp -r build/. .
+            touch .nojekyll
             git add .
       - run:
           name: Deploy to GitHub Pages
           command: |
+            if [[ -n $(git status --porcelain) ]]; then
               git commit -m "Deploy to GitHub Pages"
               git push -f origin gh-pages
+            else
+              echo "No changes to commit"
+            fi
 
 workflows:
   version: 2

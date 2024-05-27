@@ -28,11 +28,11 @@ subtitle: First-Group Presentation
 
 this is my note
 
+
+no cold email, no applicaiton that get anywhere
+
 :::
 
-<aside class="notes">
-no cold email, no applicaiton that get anywhere
-</aside>
 ---
 
 ### Backend

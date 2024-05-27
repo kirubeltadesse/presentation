@@ -5,7 +5,7 @@ date: October 31, 2022
 subtitle: First-Group Presentation
 ---
 
-## Job Application Process overview
+# Job Application Process overview
 
 ---
 
@@ -13,7 +13,7 @@ subtitle: First-Group Presentation
 
 ---
 
-### Frontend
+## Frontend
 
 - [Resume](https://www.vmock.com/)
 - Organize your applicatoin [hunter](https://huntr.co/)
@@ -22,36 +22,37 @@ subtitle: First-Group Presentation
 
 ---
 
-![](img/resume-upload-meme.jpg)
+![](img/resume-upload-meme.jpg){width=65% height=40%}
 
 ::: notes
 
 this is my note
 
-
-no cold email, no applicaiton that get anywhere
+no cold email, no application that get anywhere
 
 :::
 
 ---
 
-### Backend
+## Backend
 
 - Recommendation letter
 - Following up (networking)
-- Techincal skill [AlgoExpert](https://www.algoexpert.io/product)
+- Technical skill [AlgoExpert](https://www.algoexpert.io/product)
 - __final round__ 🎉
 
-Note:
+::: notes
+
 this will only display in the notes window.
 
----
-
-## Tips
+:::
 
 ---
 
-![](img/timeManagment.png)
+### Tips
+
+
+![](img/timeManagment.png){width=85% height=50%}
 
 ---
 
@@ -68,7 +69,7 @@ this will only display in the notes window.
 
 ---
 
-### Don't Does
+## Don't Does
 
 - Underdress
 - Interview without preparation
@@ -83,11 +84,11 @@ this will only display in the notes window.
 
 ---
 
-![](img/Teamwork.jpg)
+![](img/Teamwork.jpg){width=75% height=50%}
 
 ---
 
-### Coding
+## Coding
 
 >Write a function that reverse a string!
 
@@ -112,7 +113,6 @@ this will only display in the notes window.
 
 ## Offer
 
-
 Salary negotiation 🙌🎉🎊
 
 ---
@@ -126,7 +126,6 @@ Salary negotiation 🙌🎉🎊
 - [AlgoExpert](https://www.algoexpert.io/product)
 - [Leetcode](https://leetcode.com/)
 
----
 
 ## Conclusion
 

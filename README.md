@@ -1,8 +1,8 @@
 # presentation
 
-Create slides using Markdown, pandoc, and revealJS.
-
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/kirubeltadesse/presentation/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/kirubeltadesse/presentation/tree/master)
+
+Create slides using Markdown, pandoc, and revealJS.
 
 [Here](https://github.com/jgm/pandoc/wiki/Using-pandoc-to-produce-reveal.js-slides) is the setup for the `Dockerfile` used to create the slides.
 

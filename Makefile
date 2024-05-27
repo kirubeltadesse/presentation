@@ -21,7 +21,7 @@ build: check_build_dir $(BUILD_DIR)/$(notdir $(FOLDER)).html index
 $(BUILD_DIR)/$(notdir $(FOLDER)).html: $(FOLDER)/config.yml | check_build_dir
 	cp $(FOLDER)/img/* $(BUILD_DIR)/img/
 	pandoc -t revealjs -s $(shell grep -v '^-' $(FOLDER)/config.yml | xargs -I{} echo $(FOLDER)/{}) \
-	--template=$(REPO_ROOT)/template.html --resource-path=$(FOLDER) -o $@
+	--template=$(REPO_ROOT)/template.html --resource-path=$(FOLDER) --slide-level=2 -o $@
 	echo "Generated $(notdir $(FOLDER)).html: build/$(notdir $(FOLDER)).html"
 
 # Generate index.html with links to all files in the build directory

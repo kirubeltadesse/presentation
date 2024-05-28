@@ -24,15 +24,14 @@ $(BUILD_DIR)/$(notdir $(FOLDER)).html: $(FOLDER)/config.yml | check_build_dir
 	--template=$(REPO_ROOT)/template.html --resource-path=$(FOLDER) --slide-level=2 -o $@
 	echo "Generated $(notdir $(FOLDER)).html: build/$(notdir $(FOLDER)).html"
 
-# Generate index.html with links to all files in the build directory
 index: check_build_dir
-	echo "<html><body><h1>Presentation Files</h1><ul>" > build/index.html
+	cp index.html build/index.html
 	find build -type f -name '*.html' | grep -v 'index.html' | while read file; do \
 		title=$$(basename "$$file" .html); \
 		href=$$(echo $$file | sed 's|^build/||'); \
-		echo "<li><a href=\"$$href\">$$title</a></li>"; \
-	done >> build/index.html
-	echo "</ul></body></html>" >> build/index.html
+		link="<li><section><h1>$$title</h1><p><a href=\"$$href\">View Slide</a></p></section></li>"; \
+		sed -i '' -e "s|<!-- END_LINKS -->|$$link\n<!-- END_LINKS -->|" build/index.html; \
+	done
 	echo "Generated index: build/index.html"
 
 clean:

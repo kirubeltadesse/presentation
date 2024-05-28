@@ -13,10 +13,10 @@ RUN wget https://github.com/jgm/pandoc/releases/download/2.14/pandoc-2.14-linux-
     && rm pandoc-2.14-linux-arm64.tar.gz
 
 # Set the working directory
-WORKDIR /reveal.js/content
+WORKDIR /WORKDIR
 
 # Set the default command to tail the logs (you can override this if needed)
 # CMD ["tail", "-f", "/dev/null"]
 
 # Start the HTTP server to serve the slides
-CMD ["python3", "-m", "http.server", "8000"]
+CMD ["python3", "-m", "http.server", "8000", "--directory", "build"]

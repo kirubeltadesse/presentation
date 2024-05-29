@@ -18,6 +18,9 @@ jobs:
           name: Verify template file presence
           command: ls -l template.html
       - run:
+          name: Verify index.html file presence
+          command: ls -l index.html
+      - run:
           name: Building the reveal.js presentation slides
           command: |
             for PROJ in $(basename -a $(ls -d */ | grep -v 'filters')); do

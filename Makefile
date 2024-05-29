@@ -25,12 +25,12 @@ $(BUILD_DIR)/$(notdir $(FOLDER)).html: $(FOLDER)/config.yml | check_build_dir
 	echo "Generated $(notdir $(FOLDER)).html: build/$(notdir $(FOLDER)).html"
 
 index: check_build_dir
-	cp index.html build/index.html
+	cp $(REPO_ROOT)/index.html build/index.html
 	find build -type f -name '*.html' | grep -v 'index.html' | while read file; do \
 		title=$$(basename "$$file" .html); \
 		href=$$(echo $$file | sed 's|^build/||'); \
 		link="<li><section><h1>$$title</h1><p><a href=\"$$href\">View Slide</a></p></section></li>"; \
-		sed -i '' -e "s|<!-- END_LINKS -->|$$link\n<!-- END_LINKS -->|" build/index.html; \
+		sed -i.bak -e "s|<!-- END_LINKS -->|$$link\n<!-- END_LINKS -->|" build/index.html && rm build/index.html.bak; \
 	done
 	echo "Generated index: build/index.html"
 

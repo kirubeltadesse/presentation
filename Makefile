@@ -30,7 +30,7 @@ index: check_build_dir
 		title=$$(basename "$$file" .html); \
 		href=$$(echo $$file | sed 's|^build/||'); \
 		link="<li><section><h1>$$title</h1><p><a href=\"$$href\">View Slide</a></p></section></li>"; \
-		sed -i '' -e "s|<!-- END_LINKS -->|$$link\n<!-- END_LINKS -->|" build/index.html; \
+		sed -i.bak -e "s|<!-- END_LINKS -->|$$link\n<!-- END_LINKS -->|" build/index.html && rm build/index.html.bak; \
 	done
 	echo "Generated index: build/index.html"
 

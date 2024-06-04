@@ -12,8 +12,18 @@ RUN wget https://github.com/jgm/pandoc/releases/download/2.14/pandoc-2.14-linux-
     && tar -xzf pandoc-2.14-linux-arm64.tar.gz -C /usr/local \
     && rm pandoc-2.14-linux-arm64.tar.gz
 
+# Add the Pandoc binary to the PATH
+ENV PATH="/usr/local/pandoc-2.14/bin:${PATH}"
+
+# Install pip upgrade
+RUN pip install --upgrade pip
+
+# Install the required Python packages from the requirements file
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 # Set the working directory
-WORKDIR /WORKDIR
+WORKDIR /presentation
 
 # Set the default command to tail the logs (you can override this if needed)
 # CMD ["tail", "-f", "/dev/null"]

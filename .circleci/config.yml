@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.9
     environment:
       REPO_ROOT: ~/project
     steps:
@@ -20,6 +20,11 @@ jobs:
       - run:
           name: Verify index.html file presence
           command: ls -l index.html
+      - run:
+          name: Install requires Python packages
+          command: |
+            pip install --upgrade pip
+            pip install -r requirements.txt
       - run:
           name: Building the reveal.js presentation slides
           command: |

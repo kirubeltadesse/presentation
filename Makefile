@@ -13,9 +13,13 @@ PORT ?= 8000
 check_build_dir:
 	mkdir -p $(BUILD_DIR)/img/
 
+# Rule to copy JS files
+copy-js:
+	cp $(REPO_ROOT)/sketch.js $(BUILD_DIR)/sketch.js
+	cp $(REPO_ROOT)/dazzleSketch.js $(BUILD_DIR)/dazzleSketch.js
 
-# Default build
-build: check_build_dir $(BUILD_DIR)/$(notdir $(FOLDER)).html index
+# Build will create img directory and copy-js
+build: check_build_dir copy-js $(BUILD_DIR)/$(notdir $(FOLDER)).html index
 
 # Convert Markdown slides to Reveal.js format
 $(BUILD_DIR)/$(notdir $(FOLDER)).html: $(FOLDER)/config.yml | check_build_dir
@@ -27,14 +31,9 @@ $(BUILD_DIR)/$(notdir $(FOLDER)).html: $(FOLDER)/config.yml | check_build_dir
 
 # Generate index.html with links to all slides
 index: check_build_dir
-	cp $(REPO_ROOT)/index.html build/index.html
-	find build -type f -name '*.html' | grep -v 'index.html' | while read file; do \
-		folder_name=$$(basename "$$(dirname "$$file")"); \
-		href=$$(echo $$file | sed 's|^build/||'); \
-		link="<li><a href=\"$$href\"><i class=\"fas fa-file-alt slide-icon\"></i>$$folder_name</a></li>"; \
-		sed -i.bak -e "s|<!-- END_LINKS -->|$$link\n<!-- END_LINKS -->|" build/index.html && rm build/index.html.bak; \
-	done
+	python3 $(REPO_ROOT)/py_scripts/generate_index.py $(REPO_ROOT)/build
 	@echo "Generated index: build/index.html"
+
 
 clean:
 	rm -rf build

@@ -5,7 +5,7 @@ services:
     build: .
     # user: 1001:1001
     volumes:
-      - .:/workdir
+      - .:/presentation
     ports:
       - 8000:8000
     # command: bash -c "pandoc --standalone -t revealjs -o test.html -s /reveal.js/content/slide.md -V theme=$solarized -V revealjs-url=https://revealjs.com"

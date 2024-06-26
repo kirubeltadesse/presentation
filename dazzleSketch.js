@@ -42,10 +42,10 @@ var currentSketchSize = 2;
 
 // ctrl-` (next to the 1) erase and turn off drawing
 
-// ctrl-1 Yellow
-// ctrl-2 Green
-// ctrl-3 Cyan
-// ctrl-4 Red
+// ctrl-1 Green
+// ctrl-2 Yellow
+// ctrl-3 Red
+// ctrl-4 Cyan
 // ctrl-5 White
 // ctrl-6 Blue
 // ctrl-7 Magenta
@@ -62,7 +62,7 @@ $(document).keypress(function(event)
     var isSpecialKey = event.shiftKey || event.ctrlKey || event.altKey || event.metaKey;
     var w = event.which;
 
-    var colors = ['#ff0', '#0f0', '#0ff', '#f00', '#fff', '#00f', '#f0f', '#000'];
+    var colors = ['#0f0', '#ff0', '#f00', '#0ff', '#fff', '#00f', '#f0f', '#000'];
     var sizes = [1, 2, 3, 5, 8, 10, 15];
 
     if ( event.ctrlKey && w >=49 && w < 49+colors.length) {

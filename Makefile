@@ -13,13 +13,8 @@ PORT ?= 8000
 check_build_dir:
 	mkdir -p $(BUILD_DIR)/img/
 
-# Rule to copy JS files
-copy-js:
-	cp $(REPO_ROOT)/sketch.js $(BUILD_DIR)/sketch.js
-	cp $(REPO_ROOT)/dazzleSketch.js $(BUILD_DIR)/dazzleSketch.js
-
-# Build will create img directory and copy-js
-build: check_build_dir copy-js $(BUILD_DIR)/$(notdir $(FOLDER)).html index
+# Build will create img directory
+build: check_build_dir $(BUILD_DIR)/$(notdir $(FOLDER)).html index
 
 # Convert Markdown slides to Reveal.js format
 $(BUILD_DIR)/$(notdir $(FOLDER)).html: $(FOLDER)/config.yml | check_build_dir

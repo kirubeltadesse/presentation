@@ -2,10 +2,6 @@ import os
 import sys
 from jinja2 import Environment, FileSystemLoader
 
-import os
-import sys
-from jinja2 import Environment, FileSystemLoader
-
 def generate_index(build_dir):
     env = Environment(loader=FileSystemLoader(searchpath="templates"))
     template = env.get_template('index_template.html')

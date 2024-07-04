@@ -28,9 +28,10 @@ jobs:
       - run:
           name: Building the reveal.js presentation slides
           command: |
-            for PROJ in $(basename -a $(ls -d */ | grep -v 'filters')); do
+            for PROJ in $(ls -d slides/*/); do
               if [ -f $PROJ/config.yml ]; then
-                make build FOLDER=$PROJ;
+                PROJ=$(basename $PROJ)
+                make build PROJECT=$PROJ;
               else
                 echo "No config.yml in $PROJ. Skipping...";
               fi;

@@ -20,11 +20,11 @@ $(BUILD_DIR)/$(notdir $(PROJECT)).html: $(SLIDES_DIR)/config.yml | check_build_d
 	# Copy images to build directory if they exist
 	if [ -d $(SLIDES_DIR)/img ]; then cp $(SLIDES_DIR)/img/* $(BUILD_DIR)/img/; fi
 	pandoc -t revealjs -s $(shell grep -v '^-' $(SLIDES_DIR)/config.yml | xargs -I{} echo $(SLIDES_DIR)/{}) \
-		--template=$(REPO_ROOT)/template.html --resource-path=$(SLIDES_DIR) --slide-level=2 -o $@
+		--template=$(REPO_ROOT)/templates/template.html --resource-path=$(SLIDES_DIR) --slide-level=2 -o $@
 	@echo "Generated $(PROJECT).html: in $(BUILD_DIR).html"
 
 # Generate index.html with links to all slides
-index: check_build_dir # FIXME: use an index.md file to generate the index.html
+index: check_build_dir
 	python3 $(REPO_ROOT)/py_scripts/generate_index.py $(REPO_ROOT)/build
 	@echo "Generated index: build/index.html"
 

@@ -16,10 +16,10 @@ jobs:
             pandoc --version
       - run:
           name: Verify template file presence
-          command: ls -l template.html
+          command: ls -l templates/template.html
       - run:
           name: Verify index.html file presence
-          command: ls -l index.html
+          command: ls -l templates/index_template.html
       - run:
           name: Install requires Python packages
           command: |

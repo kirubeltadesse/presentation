@@ -1,0 +1,5 @@
+comm==0.2.2
+livereload==2.7.0
+setuptools==70.0.0
+typing==3.7.4.3
+watchdog==4.0.1

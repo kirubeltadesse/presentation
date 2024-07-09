@@ -19,7 +19,7 @@ def generate_index(build_dir):
     for match in matches:
         folder_path = match[1].lstrip('.').rstrip('/')
         title = match[0]
-        href = f"{folder_path}{folder_path}.html"
+        href = f".{folder_path}{folder_path}.html"
         files.append({'href': href, 'title': title})
 
     rendered = template.render(index_md_content=index_md_content, files=files)

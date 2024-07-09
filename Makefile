@@ -21,7 +21,7 @@ $(BUILD_DIR)/$(notdir $(PROJECT)).html: $(SLIDES_DIR)/config.yml | check_build_d
 	if [ -d $(SLIDES_DIR)/img ]; then cp $(SLIDES_DIR)/img/* $(BUILD_DIR)/img/; fi
 	pandoc -t revealjs -s $(shell grep -v '^-' $(SLIDES_DIR)/config.yml | xargs -I{} echo $(SLIDES_DIR)/{}) \
 		--template=$(REPO_ROOT)/templates/template.html --resource-path=$(SLIDES_DIR) --slide-level=2 -o $@
-	@echo "Generated $(PROJECT).html: in $(BUILD_DIR).html"
+	@echo "Generated $(PROJECT).html: in $(SLIDES_DIR).html"
 
 # Generate index.html with links to all slides
 index: check_build_dir
@@ -35,6 +35,5 @@ clean:
 
 # Serve the slides using Python's HTTP server
 serve:
-	python3 -m http.server $(PORT) --directory build
-	@echo "Serving slides at http://localhost:$(PORT)"
+	python3 $(REPO_ROOT)/py_scripts/live_server.py --folder slides --port $(PORT)
 

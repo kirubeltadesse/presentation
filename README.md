@@ -29,7 +29,7 @@ I am not sure how this travel can be triggered. This should work!
 Build locally and push mv the contents of the build folder outside the build folder.
 
 ```bash
-make build FOLDER=preo
+make build PROJECT=example
 ```
 
 2. Push directly to the gh-pages repo

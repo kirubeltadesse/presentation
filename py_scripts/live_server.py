@@ -7,7 +7,6 @@ from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
 
-# TODO: there is a bug and I don't know where it is coming from
 class RebuildHandler(FileSystemEventHandler):
     def __init__(self, build_command_template):
         self.build_command_template = build_command_template

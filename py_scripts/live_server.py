@@ -7,7 +7,6 @@ from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
 
-# TODO: there is a bug and I don't know where it is coming from
 class RebuildHandler(FileSystemEventHandler):
     def __init__(self, build_command_template):
         self.build_command_template = build_command_template
@@ -54,8 +53,8 @@ def live_server(folder: str, port: int) -> None:
             "example/*",
             "slides/**/*"
             # TODO: add nested folders
-
             )
+
     build_command_template = "make build PROJECT={folder}"
 
     rebuild_handler = RebuildHandler(build_command_template)
@@ -70,7 +69,7 @@ def live_server(folder: str, port: int) -> None:
             ))
         # We will handle rebuild in the obser
 
-    server.serve(root=root, port=port, open_url_delay=1)
+    server.serve(root=root, host="0.0.0.0", port=port, open_url_delay=1)
 
     try:
         observer.join()

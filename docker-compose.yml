@@ -1,16 +1,12 @@
 version: '3.7'
-# TDOO: add the command to serve the slides in the browser
 services:
   presentation:
     build: .
-    # user: 1001:1001
     volumes:
       - .:/presentation
     ports:
       - 8000:8000
-    command: python3 -m http.server 8000 --directory build
-    # FIXME: not avaliable out side the container
-    # command: python3 ./py_scripts/live_server.py --folder slides --port 8000
+    command: python3 ./py_scripts/live_server.py --folder slides --port 8000
 
 volumes:
   presentation:

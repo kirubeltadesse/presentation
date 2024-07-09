@@ -58,13 +58,13 @@ jobs:
             git fetch origin gh-pages
             git checkout gh-pages
             ls -la
-            # Remove all the existing files in the current directory except the build directory and .git directory
-            find . -path ./build -prune -o -path ./.git -prune -o -type f -exec git rm -r {} \;
+            # Remove all the existing files in the current directory except the build, resources, and .git directory
+            find . -path ./build -prune -o -path ./.git -prune -o -path ./resources -prune -o -type f -exec git rm -r {} \;
             # Copy the contents of the build directory to the current directory, but not the build directory itself
             cp -r build/* .
             touch .nojekyll
-            # Add all files and directories except the build directory
-            find . -path ./build -prune -o -path ./.git -prune -o -type f -exec git add {} \;
+            # Add all files and directories except the build, and resources directory
+            find . -path ./build -prune -o -path ./.git -prune -o -path ./resources -prune -o -type f -exec git add {} \;
       - run:
           name: Deploy to GitHub Pages
           command: |

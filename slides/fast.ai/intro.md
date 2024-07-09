@@ -1,5 +1,4 @@
-## fast.ai course
+# fast.ai course
 
-Welcome
 Welcome
 

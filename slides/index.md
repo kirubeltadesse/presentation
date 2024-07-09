@@ -1,2 +1,3 @@
 - [example](./example/)
+- [slides](./slides/)
 - [fast.ai](./fast.ai/)

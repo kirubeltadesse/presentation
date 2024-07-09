@@ -19,8 +19,9 @@ ENV PATH="/usr/local/pandoc-2.14/bin:${PATH}"
 RUN pip install --upgrade pip
 
 # Install the required Python packages from the requirements file
-COPY requirements.txt .
+COPY requirements*.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements-dev.txt
 
 # Set the working directory
 WORKDIR /presentation

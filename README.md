@@ -26,14 +26,14 @@ I am not sure how this travel can be triggered. This should work!
 
 ### You can manually push the build
 
-1. build locally and push mv the contents of the build folder outside the build folder.
+Build locally and push mv the contents of the build folder outside the build folder.
 
 ```bash
-make build FOLDER=preo
+make build PROJECT=example
 ```
 
-2. push directly to the gh-pages repo
+2. Push directly to the gh-pages repo
 
 ### Automatically CircleCI will handle the build
 
-1. push the master repo and Circle ci will handle the deployment.
+1. Push the master repo and Circle ci will handle the deployment.

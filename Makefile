@@ -2,32 +2,26 @@
 .PHONY: build serve clean check_build_dir index
 
 # Default folder for slides
-FOLDER ?= ./slides
-# Remove trailing slash if present
-FOLDER := $(patsubst %/,%,$(FOLDER))
+PROJECT ?= exmaple
+SLIDES_DIR = slides/$(PROJECT)
+BUILD_DIR = build/$(PROJECT)
 REPO_ROOT := $(shell pwd)
-BUILD_DIR = build/$(FOLDER)
 PORT ?= 8000
 
 # Check if the build directory exists, if not create it
 check_build_dir:
 	mkdir -p $(BUILD_DIR)/img/
 
-# Rule to copy JS files
-copy-js:
-	cp $(REPO_ROOT)/sketch.js $(BUILD_DIR)/sketch.js
-	cp $(REPO_ROOT)/dazzleSketch.js $(BUILD_DIR)/dazzleSketch.js
-
-# Build will create img directory and copy-js
-build: check_build_dir copy-js $(BUILD_DIR)/$(notdir $(FOLDER)).html index
+# Build will create img directory
+build: check_build_dir $(BUILD_DIR)/$(notdir $(PROJECT)).html index
 
 # Convert Markdown slides to Reveal.js format
-$(BUILD_DIR)/$(notdir $(FOLDER)).html: $(FOLDER)/config.yml | check_build_dir
+$(BUILD_DIR)/$(notdir $(PROJECT)).html: $(SLIDES_DIR)/config.yml | check_build_dir
 	# Copy images to build directory if they exist
-	if [ -d $(FOLDER)/img ]; then cp $(FOLDER)/img/* $(BUILD_DIR)/img/; fi
-	pandoc -t revealjs -s $(shell grep -v '^-' $(FOLDER)/config.yml | xargs -I{} echo $(FOLDER)/{}) \
-		--template=$(REPO_ROOT)/template.html --resource-path=$(FOLDER) --slide-level=2 -o $@
-	@echo "Generated $(notdir $(FOLDER)).html: build/$(notdir $(FOLDER)).html"
+	if [ -d $(SLIDES_DIR)/img ]; then cp $(SLIDES_DIR)/img/* $(BUILD_DIR)/img/; fi
+	pandoc -t revealjs -s $(shell grep -v '^-' $(SLIDES_DIR)/config.yml | xargs -I{} echo $(SLIDES_DIR)/{}) \
+		--template=$(REPO_ROOT)/templates/template.html --resource-path=$(SLIDES_DIR) --slide-level=2 -o $@
+	@echo "Generated $(PROJECT).html: in $(SLIDES_DIR).html"
 
 # Generate index.html with links to all slides
 index: check_build_dir
@@ -41,6 +35,5 @@ clean:
 
 # Serve the slides using Python's HTTP server
 serve:
-	python3 -m http.server $(PORT) --directory build
-	@echo "Serving slides at http://localhost:$(PORT)"
+	python3 $(REPO_ROOT)/py_scripts/live_server.py --folder slides --port $(PORT)
 

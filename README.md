@@ -22,6 +22,38 @@ content for the speaker
 
 I am not sure how this travel can be triggered. This should work!
 
+## Footer
+
+You can add a footer to your slides that will appear at the bottom of each slide. To enable the footer:
+
+1. Create a `metadata.yml` file in your slides directory (e.g., `slides/example/metadata.yml`)
+2. Add the following configuration:
+
+```yaml
+---
+title: "Your Presentation Title"
+footer-enabled: true
+footer-title: "Your Footer Text | 2024"
+---
+```
+
+### Footer Options
+
+- `footer-enabled`: Set to `true` to enable the footer, or `false` to disable it (default: `false`)
+- `footer-title`: The text to display in the footer (default: uses the presentation title)
+
+### Example
+
+```yaml
+---
+title: "Example Presentation"
+footer-enabled: true
+footer-title: "Example Presentation | 2024"
+---
+```
+
+If no `metadata.yml` file exists, the footer will be disabled by default.
+
 ## Deployment
 
 ### You can manually push the build

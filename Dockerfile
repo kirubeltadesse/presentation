@@ -8,9 +8,9 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install Pandoc binary
-RUN wget https://github.com/jgm/pandoc/releases/download/2.14/pandoc-2.14-linux-arm64.tar.gz \
-    && tar -xzf pandoc-2.14-linux-arm64.tar.gz -C /usr/local \
-    && rm pandoc-2.14-linux-arm64.tar.gz
+RUN wget --no-check-certificate https://github.com/jgm/pandoc/releases/download/2.14/pandoc-2.14-linux-amd64.tar.gz \
+    && tar -xzf pandoc-2.14-linux-amd64.tar.gz -C /usr/local \
+    && rm pandoc-2.14-linux-amd64.tar.gz
 
 # Add the Pandoc binary to the PATH
 ENV PATH="/usr/local/pandoc-2.14/bin:${PATH}"

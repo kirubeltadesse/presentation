@@ -9,6 +9,26 @@
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.2.0/dist/theme/black.css" id="theme">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
   <script src="https://kirubeltadesse.github.io/presentation/resources/highlight/highlight.min.js"></script>
+  
+  <!-- Footer styles -->
+  <style>
+    #footer {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7em;
+      color: rgba(255, 255, 255, 0.6);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .reveal.has-dark-background #footer {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .reveal.has-light-background #footer {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
 
 </head>
 
@@ -186,6 +206,38 @@
       ],
     });
     hljs.highlightAll();
+
+    // Footer functionality
+    var footerConfig = {
+      enabled: $if(footer-enabled)$$footer-enabled$$else$false$endif$,
+      title: "$if(footer-title)$$footer-title$$else$$title$$endif$"
+    };
+
+    if (footerConfig.enabled) {
+      var footer = document.createElement('div');
+      footer.id = 'footer';
+      footer.innerHTML = footerConfig.title;
+      document.querySelector('.reveal').appendChild(footer);
+
+      // Update footer visibility based on slide background
+      Reveal.on('slidechanged', function(event) {
+        var currentSlide = event.currentSlide;
+        var background = window.getComputedStyle(currentSlide).backgroundColor;
+        
+        // Simple heuristic to detect dark vs light background
+        var rgb = background.match(/\d+/g);
+        if (rgb) {
+          var brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+          if (brightness > 128) {
+            document.querySelector('.reveal').classList.add('has-light-background');
+            document.querySelector('.reveal').classList.remove('has-dark-background');
+          } else {
+            document.querySelector('.reveal').classList.add('has-dark-background');
+            document.querySelector('.reveal').classList.remove('has-light-background');
+          }
+        }
+      });
+    }
   </script>
 </body>
 </html>

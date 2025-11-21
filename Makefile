@@ -19,8 +19,13 @@ build: check_build_dir $(BUILD_DIR)/$(notdir $(PROJECT)).html index
 $(BUILD_DIR)/$(notdir $(PROJECT)).html: $(SLIDES_DIR)/config.yml | check_build_dir
 	# Copy images to build directory if they exist
 	if [ -d $(SLIDES_DIR)/img ]; then cp $(SLIDES_DIR)/img/* $(BUILD_DIR)/img/; fi
-	pandoc -t revealjs -s $(shell grep -v '^-' $(SLIDES_DIR)/config.yml | xargs -I{} echo $(SLIDES_DIR)/{}) \
-		--template=$(REPO_ROOT)/templates/template.html --resource-path=$(SLIDES_DIR) --slide-level=2 -o $@
+	@if [ -f $(SLIDES_DIR)/metadata.yml ]; then \
+		pandoc -t revealjs -s $(SLIDES_DIR)/metadata.yml $(shell grep -v '^-' $(SLIDES_DIR)/config.yml | xargs -I{} echo $(SLIDES_DIR)/{}) \
+			--template=$(REPO_ROOT)/templates/template.html --resource-path=$(SLIDES_DIR) --slide-level=2 -o $@; \
+	else \
+		pandoc -t revealjs -s $(shell grep -v '^-' $(SLIDES_DIR)/config.yml | xargs -I{} echo $(SLIDES_DIR)/{}) \
+			--template=$(REPO_ROOT)/templates/template.html --resource-path=$(SLIDES_DIR) --slide-level=2 -o $@; \
+	fi
 	@echo "Generated $(PROJECT).html: in $(SLIDES_DIR).html"
 
 # Generate index.html with links to all slides
